@@ -1,0 +1,116 @@
+[10:14, 12/9/2020] Louis Bel: <!doctype html>
+<html> <!-- everything goes between the two <html> tags -->
+    <head>
+        <!-- Alle robot stuff hier -->
+        <title>Home page</title> <!-- Wat in die tab staan -->
+        <meta name="description" content="We are a hip-hop dance academy based in Centurion, Gauteng. We are here to work in EXCELLENCE for the kingdom of God through professional, internationally recognized training."/> <!-- Google Desc -->
+        <!-- more meta tags here: https://www.w3schools.com/tags/tag_meta.asp -->
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Todos</h1>
+        <div id="result"></div>
+
+        <h1>Posts</h1>
+        <div id="result-posts"></div>
+
+        
+  
+
+
+        <script>
+
+        // Send request
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== 4){
+                document.getElementById('result').innerHTML = "Loading...";
+            }
+            if (xhr.readyState === 4){ // 4 = request is finished
+                var reponse = xhr.responseText;
+                var jsonResponse = JSON.parse(reponse);
+
+                //alert(jsonResponse[0].userId);
+
+                var html_arr = `<table>
+                                <tr>
+                                    <th>User ID</th>
+                                    <th>Title</th>
+                                    <th>Completed</th>
+                                </tr>`;
+
+                for (i = 0; i < jsonResponse.length; i++) {
+                    var completed = jsonResponse[i].completed;
+                    var completedText = "";
+                    if (completed == false) {
+                        completedText = "No";
+                    } else {
+                        completedText = "Yes";
+                    }
+                    html_arr += `<tr>
+                                    <td>`+ jsonResponse[i].userId +`</td>
+                                    <td>`+  jsonResponse[i].title +`</td>
+                                    <td>`+ completedText +`</td>
+                                </tr>`;
+                }
+
+                html_arr += "</table>";
+                document.getElementById('result').innerHTML = html_arr;
+            }
+        };
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos');
+        xhr.send();
+
+        // Send request
+        var xhr2 = new XMLHttpRequest();
+        xhr2.onreadystatechange = function() {
+            if (xhr2.readyState !== 4){
+                document.getElementById('result-posts').innerHTML = "Loading...";
+            }
+            if (xhr2.readyState === 4){ // 4 = request is finished
+                var reponse = xhr2.responseText;
+                var jsonResponse = JSON.parse(reponse);
+
+                var html_arr = `<table>
+                                <tr>
+                                    <th>Post ID</th>
+                                    <th>Title</th>
+                                    <th>Body</th>
+                                </tr>`;
+
+                for (i = 0; i < jsonResponse.length; i++) {
+                    html_arr += `<tr>
+                                    <td>`+ jsonResponse[i].id +`</td>
+                                    <td>`+  jsonResponse[i].title +`</td>
+                                    <td>`+ jsonResponse[i].body +`</td>
+                                </tr>`;
+                }
+
+                html_arr += "</table>";
+                document.getElementById('result-posts').innerHTML = html_arr;
+            }
+        };
+        xhr2.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+        xhr2.send();
+
+        </script>
+        <script src="js/script.js"></script>
+    </body>
+</html>

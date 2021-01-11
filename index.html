@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Watch Christian</title>
+        <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!--Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
+    </head>
+
+    <style>
+        body {
+            background-color:rgb(100, 101, 182);
+            margin: 0px;
+            width: 100%;
+        }
+
+              
+        .logins {
+            padding-left: 60%;
+            margin-top: 0cm;
+        }
+
+        #logo {
+            padding-left: 2.5cm;
+            width: 250px;
+        }
+
+        .search {
+            background-color: rgba(243, 237, 237, 0.884);
+            margin-top:-0.55cm;
+            padding-left:40%;
+        }
+
+        .stickynav {
+          position: sticky;
+          top: 0;
+          z-index: 11;
+        }
+        
+        #latest {
+          font-family: "Montserrat" , sans-serif;
+        }
+
+        #popular  {
+          font-family: "Montserrat" , sans-serif;
+        }
+
+        #all {
+          position:absolute;
+          margin-left: 45%;
+          text-align: center;
+          font-size: 30px;
+          font-family: "Montserrat" , sans-serif;
+        }
+
+
+        table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+
+    </style>
+
+        <body onload='loadLatest() , loadPopular()' style="height:1500px">
+
+          <div class="stickynav">
+            <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+                <img id="logo" src="Images\Watch Christian - Logo.png">
+            <div class="logins">
+              <a class="navbar-brand" href="#"></a>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+            </div>
+            </nav>
+
+        <div class="search">
+    <nav class="navbar navbar-expand-sm">
+        <form class="form-inline" action="/action_page.php">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-dark" type="submit">Search</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="Images\Banner 1.png" alt="Los Angeles" 
+            style="width:100%; height:450px; padding-left:5cm; padding-right:5cm">
+          </div>
+          <div class="carousel-item">
+            <img src="Images\Banner 2.jpg" alt="Chicago"
+            style="width:100%; height:450px; padding-left:5cm; padding-right:5cm">
+          </div>
+          <div class="carousel-item">
+            <img src="Images\Banner 3.png" alt="New York"
+            style="width:100%; height:450px; padding-left:5cm; padding-right:5cm">
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      
+      </div>
+<br>
+      <h2 id="latest" style="color: white; padding-left:1cm;">Latest</h2>
+<br>
+    <div id='latest-movies'></div>
+<br><br>
+          <h2 id="popular" style="color: white; padding-left:1cm;">Most Popular</h2>
+<br>
+      <div id='most-popular'></div>
+<br><br> 
+    
+      <button id="all" onclick="functionAllMovies()">All Movies</button>
+<br><br><br>
+      <div id="test"></div>
+<br><br><br><br>
+
+      <p style="background-color: aliceblue;">&copy; JP Saayman and Let Me Freelance 2020</p>
+
+
+
+<script>
+
+      
+
+</script>
+  <script src="./assests/movie.js"></script>
+        
+
+    </body>
+
+</html>
